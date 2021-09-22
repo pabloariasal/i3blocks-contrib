@@ -42,7 +42,9 @@ void display(const char *label, double used,
     printf("%s<span>", label);
   }
 
-  printf("%*.*lf%%</span>\n", decimals + 3 + 1, decimals, used);
+  int pre_decimal_width = used > 99.0 ? 3 : 2;
+
+  printf("%*.*lf%%</span>\n", pre_decimal_width, decimals, used);
 }
 
 ulli get_usage(ulli *used_jiffies)
